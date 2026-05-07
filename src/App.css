@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+  background: radial-gradient(circle, #0d0d0d, #000000);
+  height: 100vh;
+  color: #00ffff;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-shadow: 0 0 15px #00ffff;
+}
+
+h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+button {
+  background: transparent;
+  border: 2px solid #00ffff;
+  color: #00ffff;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00ffff;
+  color: black;
+  box-shadow: 0 0 20px #00ffff;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: 0.2s;
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
