@@ -1,53 +1,137 @@
-.App {
+/* NeuroGrid - Global App Styles */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --c-bg:        #060811;
+  --c-bg2:       #0a0d1a;
+  --c-surface:   rgba(14, 18, 35, 0.9);
+  --c-cyan:      #00dcf0;
+  --c-blue:      #3a8eff;
+  --c-green:     #00e888;
+  --c-gold:      #ffc820;
+  --c-text:      rgba(220, 230, 255, 0.92);
+  --c-muted:     rgba(180, 190, 220, 0.45);
+  --font-mono:   'Share Tech Mono', 'Courier New', monospace;
+  --font-display:'Orbitron', sans-serif;
+}
+
+html, body { height: 100%; }
+
+body {
+  background-color: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  overflow-x: hidden;
+  /* Subtle animated grid background */
+  background-image:
+    linear-gradient(rgba(0, 220, 240, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 220, 240, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scanline overlay */
+.app__scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.04) 2px,
+    rgba(0, 0, 0, 0.04) 4px
+  );
+}
+
+.app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px 40px;
+}
+
+/* Header */
+.app__header {
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 0 32px;
+  gap: 12px;
   text-align: center;
-  background: radial-gradient(circle, #0d0d0d, #000000);
-  height: 100vh;
-  color: #00ffff;
-  font-family: Arial, sans-serif;
 }
 
-h1 {
-  text-shadow: 0 0 15px #00ffff;
-}
-
-h3 {
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-button {
-  background: transparent;
-  border: 2px solid #00ffff;
-  color: #00ffff;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin: 10px;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: #00ffff;
-  color: black;
-  box-shadow: 0 0 20px #00ffff;
-}
-
-.grid {
+.app__logo {
   display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.app__logo-icon {
+  font-size: 36px;
+  color: var(--c-cyan);
+  filter: drop-shadow(0 0 12px var(--c-cyan));
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0);   filter: drop-shadow(0 0 12px var(--c-cyan)); }
+  50%       { transform: translateY(-4px); filter: drop-shadow(0 0 20px var(--c-cyan)); }
+}
+
+.app__logo-text {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 48px);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--c-text);
+  text-shadow: 0 0 30px rgba(0, 220, 240, 0.25);
+}
+
+.app__logo-text span {
+  color: var(--c-cyan);
+  text-shadow: 0 0 20px var(--c-cyan), 0 0 40px rgba(0, 220, 240, 0.4);
+}
+
+.app__tagline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--c-muted);
+  text-transform: uppercase;
+}
+
+/* Main Layout */
+.app__main {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
   justify-content: center;
-  margin-top: 20px;
+  width: 100%;
+  max-width: 1100px;
+  flex-wrap: wrap;
 }
 
-.row {
-  display: flex;
+/* Footer */
+.app__footer {
+  margin-top: 48px;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.18);
 }
 
-.cell {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  transition: 0.2s;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--c-bg); }
+::-webkit-scrollbar-thumb { background: rgba(0, 220, 240, 0.2); border-radius: 3px; }
 
-.cell:hover {
-  transform: scale(1.1);
+@media (max-width: 600px) {
+  .app__main { flex-direction: column; align-items: center; }
 }
