@@ -1,0 +1,33 @@
+.controls {
+  padding: 20px;
+  background: #111827;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.controls button {
+  margin: 5px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn--run {
+  background: #2563eb;
+  color: white;
+}
+
+.btn--reset {
+  background: #dc2626;
+  color: white;
+}
+
+.algo-card {
+  margin: 5px;
+  padding: 10px;
+  background: #1e293b;
+  color: white;
+  border: 1px solid #334155;
+}

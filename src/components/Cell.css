@@ -1,0 +1,33 @@
+.cell {
+  width: 45px;
+  height: 45px;
+  border: 1px solid #1e293b;
+  background: #0f172a;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.cell:hover {
+  transform: scale(1.05);
+}
+
+.cell--wall {
+  background: #111827;
+}
+
+.cell--path {
+  background: cyan;
+}
+
+.cell--active {
+  background: orange;
+  box-shadow: 0 0 12px orange;
+}
+
+.cell--start {
+  background: #2563eb;
+}
+
+.cell--end {
+  background: #16a34a;
+}
